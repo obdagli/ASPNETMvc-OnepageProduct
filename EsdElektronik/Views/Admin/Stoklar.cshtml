@@ -1,0 +1,47 @@
+﻿@using EsdElektronik.Models.Entity
+@{
+    ViewBag.Title = "Stoklar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <span class="me-auto"><i class="bi bi-table me-2"></i>Urun Tablosu</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped data-table" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>Urun Id</th>
+                                <th>Stok</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.tbl_urunler.UrunAd</td>
+                                    <td>@item.StokSayi</td>
+                                    <td><a href="~/Admin/Stokguncelle/@item.id" class="btn btn-success">Güncelle</a></td>
+                                    <td><a href="~/Admin/Stoksil/@item.id" class="btn btn-danger">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Urun Id</th>
+                                <th>Stok</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

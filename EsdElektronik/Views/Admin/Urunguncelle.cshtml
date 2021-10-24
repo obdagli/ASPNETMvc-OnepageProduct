@@ -1,0 +1,38 @@
+﻿@model EsdElektronik.Models.Entity.tbl_urunler
+@{
+    ViewBag.Title = "Urunguncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <h4>URUN GUNCELLE</h4>
+</div>
+<div class="row col-lg-5">
+    <form method="post" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            @Html.TextBoxFor(m=> m.UrunAd, new { @class = "form-control", @required = "required"})
+            @*<input type="text" class="form-control" placeholder="Ürün Adı" name="UrunAd" aria-describedby="button-addon2" required>*@
+        </div>
+        <div class="input-group mb-3">
+            @Html.TextBoxFor(m => m.UrunFiyat, new { @class = "form-control", @required = "required" })
+            @*<input type="number" class="form-control" placeholder="Ürün Fiyatı" name="UrunFiyat" aria-describedby="button-addon2" required>*@
+        </div>
+        <div class="input-group mb-3">
+            @Html.DropDownListFor(m => m.tbl_kategori.KategoriId, (List<SelectListItem>)ViewBag.query, new { @class = "form-control" })
+        </div>
+        <div class="input-group mb-3 me-">
+            <input class="form-control" type="file" name="ImageFile" id="formFile" required>
+        </div>
+        <div class="input-group mb-3">
+            @Html.TextBoxFor(m => m.UrunAciklama, new { @class = "form-control", @required = "required" })
+            @*<input type="text" class="form-control" placeholder="Ürün Açıklaması" name="UrunAciklama" aria-describedby="button-addon2" required>*@
+        </div>
+        <div class="input-group mb-3">
+            @Html.TextBoxFor(m => m.UrunKod, new { @class = "form-control", @required = "required" })
+            @*<input type="text" class="form-control" placeholder="Ürün Kod" name="UrunKod" aria-describedby="button-addon2" required>*@
+        </div>
+        <div class="input-group mb-3 w-25">
+            <button class="btn btn-success">Oluştur</button>
+        </div>
+    </form>
+</div>

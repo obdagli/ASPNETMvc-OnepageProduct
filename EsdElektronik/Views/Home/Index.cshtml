@@ -1,0 +1,45 @@
+﻿@using EsdElektronik.Models.Entity
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .productClass:hover {
+            box-shadow: 0 3px 9px 0 rgb(0 1 1 / 10%);
+    }
+    .cats:hover {
+        color: blue !important;
+        transition: 0.3s;
+    }
+
+    .productImg {
+        border-top-left-radius: 35px;
+        border-top-right-radius: 35px;
+    }
+</style>
+<div class="w-100 d-flex flex-row bd-highlight mb-5 justify-content-center">
+    @foreach(var item in ViewBag.Categories)
+    {
+    <a href="/EsdElektronik/Home/Index/@item.KategoriId" class="cats"><span class="badge text-dark fs-4 border-end border-st me-1 cats">@item.KategoriAd</span></a>
+    }
+</div>
+<div class="row justify-content-center">
+    @foreach (var x in Model)
+    {
+        <div class="card rounded-3 col-lg-2 me-3 mt-2 productClass">
+            <img src="@x.UrunFoto" class="card-img-top border-bottom"alt="...">
+            <div class="card-body text-dark text-center">
+                <div class="h-75">
+                    <h5 class="card-title">@x.UrunAd</h5>
+                    <p class="card-text">Kod : <b>@x.UrunKod</b></p>
+                </div>                
+                <p class="card-footer badge bg-success fs-5 rounded">@x.UrunFiyat₺</p>
+            </div>
+        </div>
+    }
+</div>
+<button type="button"
+        class="btn btn-primary btn-floating btn-lg rounded-circle"
+        id="btn-back-to-top">
+    <i class="bi bi-arrow-up-short"></i>
+</button>

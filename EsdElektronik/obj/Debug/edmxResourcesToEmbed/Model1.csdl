@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="esdelektronikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_kategori">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriAd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_urunler" Relationship="Self.FK_tbl_urunler_tbl_kategori" FromRole="tbl_kategori" ToRole="tbl_urunler" />
+  </EntityType>
+  <EntityType Name="tbl_urunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrunAd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UrunFiyat" Type="Int16" />
+    <Property Name="UrunKategori" Type="Int16" />
+    <Property Name="UrunFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UrunAciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_kategori" Relationship="Self.FK_tbl_urunler_tbl_kategori" FromRole="tbl_urunler" ToRole="tbl_kategori" />
+    <Property Name="UrunKod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_tbl_urunler_tbl_kategori">
+    <End Role="tbl_kategori" Type="Self.tbl_kategori" Multiplicity="0..1" />
+    <End Role="tbl_urunler" Type="Self.tbl_urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_kategori">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_urunler">
+        <PropertyRef Name="UrunKategori" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="esdelektronikEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_kategori" EntityType="Self.tbl_kategori" />
+    <EntitySet Name="tbl_urunler" EntityType="Self.tbl_urunler" />
+    <AssociationSet Name="FK_tbl_urunler_tbl_kategori" Association="Self.FK_tbl_urunler_tbl_kategori">
+      <End Role="tbl_kategori" EntitySet="tbl_kategori" />
+      <End Role="tbl_urunler" EntitySet="tbl_urunler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

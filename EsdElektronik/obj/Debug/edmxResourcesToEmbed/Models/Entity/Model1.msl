@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="esdelektronikModelStoreContainer" CdmEntityContainer="esdelektronikEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="esdelektronikModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_kategori">
+      <EntityTypeMapping TypeName="esdelektronikModel.tbl_kategori">
+        <MappingFragment StoreEntitySet="tbl_kategori">
+          <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_urunler">
+      <EntityTypeMapping TypeName="esdelektronikModel.tbl_urunler">
+        <MappingFragment StoreEntitySet="tbl_urunler">
+          <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+          <ScalarProperty Name="UrunAciklama" ColumnName="UrunAciklama" />
+          <ScalarProperty Name="UrunFoto" ColumnName="UrunFoto" />
+          <ScalarProperty Name="UrunKategori" ColumnName="UrunKategori" />
+          <ScalarProperty Name="UrunFiyat" ColumnName="UrunFiyat" />
+          <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_users">
+      <EntityTypeMapping TypeName="esdelektronikModel.tbl_users">
+        <MappingFragment StoreEntitySet="tbl_users">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_stok">
+      <EntityTypeMapping TypeName="esdelektronikModel.tbl_stok">
+        <MappingFragment StoreEntitySet="tbl_stok">
+          <ScalarProperty Name="StokSayi" ColumnName="StokSayi" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_slider">
+      <EntityTypeMapping TypeName="esdelektronikModel.tbl_slider">
+        <MappingFragment StoreEntitySet="tbl_slider">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SliderFoto" ColumnName="SliderFoto" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

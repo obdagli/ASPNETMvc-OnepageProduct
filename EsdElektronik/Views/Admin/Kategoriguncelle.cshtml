@@ -1,0 +1,24 @@
+﻿@model EsdElektronik.Models.Entity.tbl_kategori
+@{
+    ViewBag.Title = "Kategoriguncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <h4>KATEGORI GUNCELLE</h4>
+</div>
+<div class="row col-lg-5">
+    <form method="post" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            @Html.TextBoxFor(m => m.KategoriId, new { @class = "form-control", @required = "required", @readonly = "readonly"})
+            @*<input type="text" class="form-control" placeholder="" name="urunad" aria-describedby="button-addon2" required>*@
+        </div>
+        <div class="input-group mb-3">
+            @Html.TextBoxFor(m => m.KategoriAd, new { @class = "form-control", @required = "required" })
+            @*<input type="number" class="form-control" placeholder="Ürün Fiyatı" name="UrunFiyat" aria-describedby="button-addon2" required>*@
+        </div>
+        <div class="input-group mb-3 w-25">
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    </form>
+</div>

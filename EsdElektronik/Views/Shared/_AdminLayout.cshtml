@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="~/Style/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/Style/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="~/Style/styles_admin.css" />
+    <title>ESD Elektronik Admin Panel</title>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <!--Offcanvas Trigger-->
+            <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
+                <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+            </button>
+            <!--Offcanvas Trigger-->
+            <a class="navbar-brand fw-bold text-uppercase me-auto ms-lg-0 ms-3" href="~/Admin/Index">ESD-ELEKTRONIK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-fill"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Çıkış</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Navbar-->
+    <!--Off canvas-->
+    <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white" tabindex="-1" id="sidebar">
+        <div class="offcanvas-body p-0">
+            <nav class="navbar-dark">
+                <ul class="navbar-nav">
+                    <li>
+                        <div class="text-muted small fw-bold text-uppercase px-3">urun</div>
+                    </li>
+                    <li>
+                        <a href="~/Admin/Urunler" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-list-stars"></i></span>
+                            <span>Listele</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Admin/Urunekle" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-plus-circle-dotted"></i></span>
+                            <span>Ekle</span>
+                        </a>
+                    </li>
+                    <li class="my-4">
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <div class="text-muted small fw-bold text-uppercase px-3">kategori</div>
+                    </li>
+                    <li>
+                        <a href="~/Admin/Kategoriler" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-list-stars"></i></span>
+                            <span>Listele</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Admin/Kategoriekle" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-plus-circle-dotted"></i></span>
+                            <span>Ekle</span>
+                        </a>
+                    </li>
+                    <li class="my-4">
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <div class="text-muted small fw-bold text-uppercase px-3">stok</div>
+                    </li>
+                    <li>
+                        <a href="~/Admin/Stoklar" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-list-stars"></i></span>
+                            <span>Listele & Güncelle</span>
+                        </a>
+                    </li>
+                    <li class="my-4">
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <div class="text-muted small fw-bold text-uppercase px-3">slider</div>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-list-stars"></i></span>
+                            <span>Listele</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-plus-circle-dotted"></i></span>
+                            <span>Ekle</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Off canvas-->
+    <!--main-->
+    <main class="mt-5 pt-3">
+        <div class="container-fluid">            
+            @RenderBody()
+        </div>
+    </main>
+    <!--main-->
+
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap5.min.js"></script>
+    <script src="~/Scripts/script.js"></script>
+</body>
+</html>

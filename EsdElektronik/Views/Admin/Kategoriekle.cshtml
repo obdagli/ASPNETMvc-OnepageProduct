@@ -1,0 +1,19 @@
+﻿@using EsdElektronik.Models.Entity
+@{
+    ViewBag.Title = "Kategoriekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <h4>KATEGORI OLUSTUR</h4>
+</div>
+<div class="row col-lg-5">
+    <form method="post" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Kategori Adı" name="KategoriAd" aria-describedby="button-addon2" required>
+        </div>
+        <div class="input-group mb-3 w-25">
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    </form>
+</div>

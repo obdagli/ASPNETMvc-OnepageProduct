@@ -1,0 +1,9 @@
+﻿@using EsdElektronik.Models.Entity
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li><a class="dropdown-item" href="/EsdElektronik/Home/Index/@item.KategoriId">@item.KategoriAd</a></li>
+}

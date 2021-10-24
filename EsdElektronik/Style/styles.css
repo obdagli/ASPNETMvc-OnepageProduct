@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:400,400i,700,700i);
+* {
+    font-family: 'Rubik', sans-serif !important;
+}
+
+
+
+.info i {
+    font-size: 20px;
+    float: left;
+    width: 44px;
+    height: 44px;
+    /*background: #46c1f6;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.info h4 {
+    padding: 0 0 0 60px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: "Poppins", sans-serif;
+}
+
+.info p {
+    padding: 0 0 0 60px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #bab3a6;
+}
+
+.carousel-item img {
+    height: 50vh;
+}
+a {
+    color: #46c1f6;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #46c1f6;
+        text-decoration: none;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+}
+
+.navbar a, .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+    .navbar a i, .navbar a:focus i {
+        font-size: 12px;
+        line-height: 0;
+        margin-left: 5px;
+    }
+
+    .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+        color: #0d6efd;
+    }
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}

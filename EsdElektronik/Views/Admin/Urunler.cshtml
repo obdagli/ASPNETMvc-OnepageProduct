@@ -1,0 +1,56 @@
+﻿@using EsdElektronik.Models.Entity
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <span class="me-auto"><i class="bi bi-table me-2"></i>Urun Tablosu</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped data-table" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>Ürün Kodu</th>
+                                <th>Ürün Ad</th>
+                                <th>Ürün Açıklama</th>
+                                <th>Ürün Fiyat</th>
+                                <th>Ürün Kategori</th>
+                                <th>Ürün Güncelle</th>
+                                <th>Ürün Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>@item.UrunKod</td>
+                                <td>@item.UrunAd</td>
+                                <td>@item.UrunAciklama</td>
+                                <td>@item.UrunFiyat</td>
+                                <td>@item.tbl_kategori.KategoriAd</td>
+                                <td><a href="~/Admin/Urunguncelle/@item.id" class="btn btn-success">Güncelle</a></td>
+                                <td><a href="~/Admin/Urunsil/@item.id" class="btn btn-danger">Sil</a></td>
+                            </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Ürün Kodu</th>
+                                <th>Ürün Ad</th>
+                                <th>Ürün Açıklama</th>
+                                <th>Ürün Fiyat</th>
+                                <th>Ürün Kategori</th>
+                                <th>Ürün Güncelle</th>
+                                <th>Ürün Sil</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

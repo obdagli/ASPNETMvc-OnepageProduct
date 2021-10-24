@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fd6764c6f083419f8077386c69755a57" Name="Diagram1">
+        <EntityTypeShape EntityType="esdelektronikModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="esdelektronikModel.tbl_kategori" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="esdelektronikModel.tbl_urunler" Width="1.5" PointX="4.375" PointY="1.125" />
+        <EntityTypeShape EntityType="esdelektronikModel.tbl_users" Width="1.5" PointX="2.75" PointY="4.75" />
+        <AssociationConnector Association="esdelektronikModel.FK_tbl_urunler_tbl_kategori" />
+        <EntityTypeShape EntityType="esdelektronikModel.tbl_stok" Width="1.5" PointX="9.375" PointY="1.375" />
+        <AssociationConnector Association="esdelektronikModel.FK_tbl_stok_tbl_urunler" />
+        <EntityTypeShape EntityType="esdelektronikModel.tbl_slider" Width="1.5" PointX="5.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

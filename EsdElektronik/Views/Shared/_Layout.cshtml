@@ -1,0 +1,141 @@
+﻿@using EsdElektronik.Models.Entity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>ESD Elektronik</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/EsdElektronik/Style/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    @RenderSection("Head", false)
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-dark" id="navbar">
+        <div class="container">
+            <a href="/EsdElektronik/Home/Index" class="navbar-brand"><i class="bi bi-cpu"></i><span class="fw-bold ms-1 mt-1">ESD-Elektronik</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <div class="navbar-nav mt-1">
+                    <a href="/EsdElektronik/Home/Index" class="nav-link">Ana Sayfa</a>
+                    <a href="#" class="nav-link">Hakkımızda</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="color">Kategoriler</a>
+                        <div class="dropdown-menu mt-1">
+                            <li><a class="dropdown-item" href="/EsdElektronik/Home/Index">Tüm Ürünler</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            @Html.Action("Kats", "Home")
+                        </div>
+                    </div>
+                </div>
+                <form class="d-flex">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Ürün kodu ile ara">
+                        <button type="button" class="btn btn-primary"><i class="bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Header-->
+    <div class="container w-100">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/EsdElektronik/Images/slider1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/EsdElektronik/Images/slider2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/EsdElektronik/Images/slider3.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Section-->
+    <section class="pb-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            @RenderBody()
+        </div>
+    </section>
+    @RenderSection("Body", false)
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <iframe style="border:0; width: 100%; height: 250px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12067.438921422417!2d29.2575142!3d40.8749524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8b4ef6dd294b856!2sEsd.Elektronik!5e0!3m2!1str!2str!4v1632228320731!5m2!1str!2str" frameborder="0" allowfullscreen></iframe>
+
+
+        <div class="container">
+            <div class="row mt-5">
+
+                <div class="col-lg-4 text-white">
+                    <div class="info">
+                        <div class="address">
+                            <i class="bi bi-geo-alt bg-primary"></i>
+                            <h4>Lokasyon:</h4>
+                            <p>
+                                Kaynarca Mahallesi, Mütevazi Sk.<br />
+                                No:12/A, 34890 Pendik/İstanbul
+                            </p>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <div class="col-lg-4 text-white">
+                    <div class="info">
+
+                        <div class="open-hours">
+                            <i class="bi bi-clock bg-primary"></i>
+                            <h4>Çalışma Saatleri:</h4>
+                            <p>
+                                Haftaiçi Hergün:<br>
+                                11:00  - 23:00
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-4 text-white">
+                    <div class="info">
+                        <div class="phone">
+                            <i class="bi bi-phone bg-primary"></i>
+                            <h4>Telefon:</h4>
+                            <p>+905343138239</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/script.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

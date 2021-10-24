@@ -1,0 +1,49 @@
+﻿@using EsdElektronik.Models.Entity
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <span class="me-auto"><i class="bi bi-table me-2"></i>Urun Tablosu</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped data-table" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>Kategori Id</th>
+                                <th>Kategori Ad</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.KategoriId</td>
+                                    <td>@item.KategoriAd</td>
+                                    <td><a href="~/Admin/Kategoriguncelle/@item.KategoriId" class="btn btn-success">Güncelle</a></td>
+                                    <td><a href="~/Admin/Kategorisil/@item.KategoriId" class="btn btn-danger">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Kategori Id</th>
+                                <th>Kategori Ad</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

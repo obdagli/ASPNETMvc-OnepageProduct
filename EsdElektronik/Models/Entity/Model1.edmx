@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="esdelektronikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_kategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAd" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_slider">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SliderFoto" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_stok">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunId" Type="int" Nullable="false" />
+          <Property Name="StokSayi" Type="smallint" />
+        </EntityType>
+        <EntityType Name="tbl_urunler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAd" Type="varchar" MaxLength="100" />
+          <Property Name="UrunFiyat" Type="smallint" />
+          <Property Name="UrunKategori" Type="smallint" />
+          <Property Name="UrunFoto" Type="varchar(max)" />
+          <Property Name="UrunAciklama" Type="varchar" MaxLength="500" />
+          <Property Name="UrunKod" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_users">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_tbl_stok_tbl_urunler">
+          <End Role="tbl_urunler" Type="Self.tbl_urunler" Multiplicity="1" />
+          <End Role="tbl_stok" Type="Self.tbl_stok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_urunler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_stok">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_urunler_tbl_kategori">
+          <End Role="tbl_kategori" Type="Self.tbl_kategori" Multiplicity="0..1" />
+          <End Role="tbl_urunler" Type="Self.tbl_urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="tbl_urunler">
+              <PropertyRef Name="UrunKategori" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="esdelektronikModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_kategori" EntityType="Self.tbl_kategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_stok" EntityType="Self.tbl_stok" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_urunler" EntityType="Self.tbl_urunler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_users" EntityType="Self.tbl_users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_stok_tbl_urunler" Association="Self.FK_tbl_stok_tbl_urunler">
+            <End Role="tbl_urunler" EntitySet="tbl_urunler" />
+            <End Role="tbl_stok" EntitySet="tbl_stok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_urunler_tbl_kategori" Association="Self.FK_tbl_urunler_tbl_kategori">
+            <End Role="tbl_kategori" EntitySet="tbl_kategori" />
+            <End Role="tbl_urunler" EntitySet="tbl_urunler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="esdelektronikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="esdelektronikEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="esdelektronikModel.sysdiagrams" />
+          <EntitySet Name="tbl_kategori" EntityType="esdelektronikModel.tbl_kategori" />
+          <EntitySet Name="tbl_urunler" EntityType="esdelektronikModel.tbl_urunler" />
+          <EntitySet Name="tbl_users" EntityType="esdelektronikModel.tbl_users" />
+          <AssociationSet Name="FK_tbl_urunler_tbl_kategori" Association="esdelektronikModel.FK_tbl_urunler_tbl_kategori">
+            <End Role="tbl_kategori" EntitySet="tbl_kategori" />
+            <End Role="tbl_urunler" EntitySet="tbl_urunler" />
+          </AssociationSet>
+          <EntitySet Name="tbl_stok" EntityType="esdelektronikModel.tbl_stok" />
+          <AssociationSet Name="FK_tbl_stok_tbl_urunler" Association="esdelektronikModel.FK_tbl_stok_tbl_urunler">
+            <End Role="tbl_urunler" EntitySet="tbl_urunler" />
+            <End Role="tbl_stok" EntitySet="tbl_stok" />
+          </AssociationSet>
+          <EntitySet Name="tbl_slider" EntityType="esdelektronikModel.tbl_slider" />
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_kategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_urunler" Relationship="esdelektronikModel.FK_tbl_urunler_tbl_kategori" FromRole="tbl_kategori" ToRole="tbl_urunler" />
+        </EntityType>
+        <EntityType Name="tbl_urunler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UrunFiyat" Type="Int16" />
+          <Property Name="UrunKategori" Type="Int16" />
+          <Property Name="UrunFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UrunAciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UrunKod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_kategori" Relationship="esdelektronikModel.FK_tbl_urunler_tbl_kategori" FromRole="tbl_urunler" ToRole="tbl_kategori" />
+          <NavigationProperty Name="tbl_stok" Relationship="esdelektronikModel.FK_tbl_stok_tbl_urunler" FromRole="tbl_urunler" ToRole="tbl_stok" />
+        </EntityType>
+        <EntityType Name="tbl_users">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_tbl_urunler_tbl_kategori">
+          <End Type="esdelektronikModel.tbl_kategori" Role="tbl_kategori" Multiplicity="0..1" />
+          <End Type="esdelektronikModel.tbl_urunler" Role="tbl_urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="tbl_urunler">
+              <PropertyRef Name="UrunKategori" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_stok">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="UrunId" Type="Int32" Nullable="false" />
+          <Property Name="StokSayi" Type="Int16" />
+          <NavigationProperty Name="tbl_urunler" Relationship="esdelektronikModel.FK_tbl_stok_tbl_urunler" FromRole="tbl_stok" ToRole="tbl_urunler" />
+        </EntityType>
+        <Association Name="FK_tbl_stok_tbl_urunler">
+          <End Type="esdelektronikModel.tbl_urunler" Role="tbl_urunler" Multiplicity="1" />
+          <End Type="esdelektronikModel.tbl_stok" Role="tbl_stok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_urunler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_stok">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_slider">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SliderFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="esdelektronikModelStoreContainer" CdmEntityContainer="esdelektronikEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="esdelektronikModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_kategori">
+            <EntityTypeMapping TypeName="esdelektronikModel.tbl_kategori">
+              <MappingFragment StoreEntitySet="tbl_kategori">
+                <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_urunler">
+            <EntityTypeMapping TypeName="esdelektronikModel.tbl_urunler">
+              <MappingFragment StoreEntitySet="tbl_urunler">
+                <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+                <ScalarProperty Name="UrunAciklama" ColumnName="UrunAciklama" />
+                <ScalarProperty Name="UrunFoto" ColumnName="UrunFoto" />
+                <ScalarProperty Name="UrunKategori" ColumnName="UrunKategori" />
+                <ScalarProperty Name="UrunFiyat" ColumnName="UrunFiyat" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_users">
+            <EntityTypeMapping TypeName="esdelektronikModel.tbl_users">
+              <MappingFragment StoreEntitySet="tbl_users">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_stok">
+            <EntityTypeMapping TypeName="esdelektronikModel.tbl_stok">
+              <MappingFragment StoreEntitySet="tbl_stok">
+                <ScalarProperty Name="StokSayi" ColumnName="StokSayi" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_slider">
+            <EntityTypeMapping TypeName="esdelektronikModel.tbl_slider">
+              <MappingFragment StoreEntitySet="tbl_slider">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SliderFoto" ColumnName="SliderFoto" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
